@@ -71,7 +71,7 @@ module.exports = {
       { test: /\.json$/,  loader: 'json-loader' },
 
       // Support for CSS as raw text
-      // { test: /\.css$/,   loader: 'raw-loader' },
+      { test: /\.css$/,   loader: 'raw-loader' },
       {
         test: /\.scss$/,
         exclude: /node_modules/,

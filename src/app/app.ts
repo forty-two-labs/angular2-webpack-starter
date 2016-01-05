@@ -16,7 +16,7 @@ import {Home} from './home/home';
   providers: [ ...FORM_PROVIDERS ],
   directives: [ ...ROUTER_DIRECTIVES ],
   pipes: [],
-  styles: [],
+  styles: [ require('../../semantic/dist/semantic.css') ],
   template: `
     <header>
       <nav>

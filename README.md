@@ -205,6 +205,10 @@ We have good experience using these editors:
  * See issue [#130](https://github.com/AngularClass/angular2-webpack-starter/issues/130#issuecomment-158872648)
 * How fo I add `vscode-chrome-debug` support?
  * The VS Code chrome debug extension support can be done via `launch.json` see issue [#144](https://github.com/AngularClass/angular2-webpack-starter/issues/144#issuecomment-164063790)
+* How to rebuild semantic ui ?
+ * modify semantic/ files
+ * cd semantic
+ * gulp build
 
 # Support, Questions, or Feedback
 > Contact us anytime for anything about this repo or Angular 2
