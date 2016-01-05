@@ -24,7 +24,9 @@ var metadata = {
   baseUrl: '/',
   host: HOST,
   port: PORT,
-  ENV: ENV
+  ENV: ENV,
+  // Google Analytics: change UA-71073175-1 to be your site's ID
+  googleAnalyticsId: 'UA-71073175-1'
 };
 
 /*
