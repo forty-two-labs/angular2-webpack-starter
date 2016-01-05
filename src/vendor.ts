@@ -28,4 +28,5 @@ import 'angular2/core';
 import 'rxjs';
 
 // Other vendors for example jQuery, Lodash, angular2-jwt
-import '../semantic/dist/semantic.js';
+import 'jquery';
+import '../semantic/dist/semantic';

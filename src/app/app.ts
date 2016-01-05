@@ -1,11 +1,14 @@
 /*
  * Angular 2 decorators and services
  */
-import {Component} from 'angular2/core';
+import {Component, ViewEncapsulation} from 'angular2/core';
 import {RouteConfig, Router, ROUTER_DIRECTIVES} from 'angular2/router';
 import {FORM_PROVIDERS} from 'angular2/common';
 
-import {Home} from './home/home';
+import {Home} from './pages/home/home';
+import {NavMenu} from './components/nav-menu/nav-menu';
+
+
 
 /*
  * App Component
@@ -14,26 +17,11 @@ import {Home} from './home/home';
 @Component({
   selector: 'app',
   providers: [ ...FORM_PROVIDERS ],
-  directives: [ ...ROUTER_DIRECTIVES ],
+  directives: [ ...ROUTER_DIRECTIVES, NavMenu ],
   pipes: [],
   styles: [ require('../../semantic/dist/semantic.css') ],
-  template: `
-    <header>
-      <nav>
-        <h1>Hello {{ name }}</h1>
-        <a [routerLink]=" ['Index'] ">Index</a>
-        <a [routerLink]=" ['Home'] ">Home</a>
-      </nav>
-    </header>
-
-    <main>
-      <router-outlet></router-outlet>
-    </main>
-
-    <footer>
-      WebPack Angular 2 Starter by <a [href]="url">@AngularClass</a>
-    </footer>
-  `
+  encapsulation: ViewEncapsulation.None,
+  template: require('./app.html')
 })
 @RouteConfig([
   { path: '/', component: Home, name: 'Index' },

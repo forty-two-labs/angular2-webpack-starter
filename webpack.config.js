@@ -71,11 +71,15 @@ module.exports = {
       { test: /\.json$/,  loader: 'json-loader' },
 
       // Support for CSS as raw text
-      { test: /\.css$/,   loader: 'raw-loader' },
+      {
+        test: /\.css$/,
+        exclude: /node_modules/,
+        loader: 'raw-loader'
+      },
       {
         test: /\.scss$/,
         exclude: /node_modules/,
-        loaders: ["style", "css", "sass"]
+        loaders: ["raw", "sass"]
       },
 
       // support for .html as raw text
@@ -97,6 +101,10 @@ module.exports = {
         'ENV': JSON.stringify(metadata.ENV),
         'NODE_ENV': JSON.stringify(metadata.ENV)
       }
+    }),
+    new ProvidePlugin({
+      "$": "jquery",
+      "jQuery": "jquery"
     })
   ],
 
