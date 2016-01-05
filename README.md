@@ -79,7 +79,17 @@ angular2-webpack-starter/
  │   │
  │   ├──app/                   * WebApp: folder
  │   │   ├──app.spec.ts        * a simple test of components in app.ts
- │   │   └──app.ts             * App.ts: a simple version of our App component components
+ │   │   ├──app.ts             * App.ts: a simple version of our App component components
+ │   │   ├──app.html           *
+ │   │   ├──pages              * Page Components:
+ │   │   │  └──home            *
+ │   │   │     ├──home.ts      *
+ │   │   │     ├──home.spec.ts *
+ │   │   │     └──home.html    *
+ │   │   └──providers          * Provider Components:
+ │   │      └──product         *
+ │   │         ├──product.ts     
+ │   │         ├──product.spec.ts
  │   │
  │   └──assets/                * static assets are served here
  │       ├──icon/              * our list of icons from www.favicon-generator.org
