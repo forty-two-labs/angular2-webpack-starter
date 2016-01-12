@@ -90,11 +90,18 @@ module.exports = {
   },
 
   plugins: [
-    new CommonsChunkPlugin({ name: 'vendor', filename: 'vendor.bundle.js', minChunks: Infinity }),
+    new CommonsChunkPlugin({
+      name: 'vendor', filename: 'vendor.bundle.js', minChunks: Infinity
+    }),
     // static assets
-    new CopyWebpackPlugin([ { from: 'src/assets', to: 'assets' } ]),
+    new CopyWebpackPlugin([
+      { from: 'src/assets', to: 'assets' },
+      { from: 'semantic/dist/themes/default', to: 'themes/default' }
+    ]),
     // generating html
-    new HtmlWebpackPlugin({ template: 'src/index.html', inject: false }),
+    new HtmlWebpackPlugin({
+      template: 'src/index.html', inject: false
+    }),
     // replace
     new DefinePlugin({
       'process.env': {
