@@ -118,7 +118,7 @@ module.exports = {
         to: 'assets'
       },
       { from: 'semantic/dist/semantic.css', to: 'assets/css/semantic.css' },
-      { from: 'semantic/dist/themes/default', to: 'themes/default' }
+      { from: 'semantic/dist/themes/default', to: 'assets/css/themes/default' }
     ]),
     // generating html
     new HtmlWebpackPlugin({
