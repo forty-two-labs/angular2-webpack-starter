@@ -17,8 +17,7 @@ import {NavMenu} from './components/nav-menu/nav-menu';
   providers: [ ...FORM_PROVIDERS ],
   directives: [ ...ROUTER_DIRECTIVES, NavMenu ],
   pipes: [],
-  styles: [ require('../../semantic/dist/semantic.css') ],
-  encapsulation: ViewEncapsulation.None,
+  styles: [],
   template: require('./app.html')
 })
 @RouteConfig([

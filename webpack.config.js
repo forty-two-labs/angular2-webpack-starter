@@ -96,6 +96,7 @@ module.exports = {
     // static assets
     new CopyWebpackPlugin([
       { from: 'src/assets', to: 'assets' },
+      { from: 'semantic/dist/semantic.css', to: 'assets/css/semantic.css' },
       { from: 'semantic/dist/themes/default', to: 'themes/default' }
     ]),
     // generating html
