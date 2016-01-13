@@ -8,8 +8,6 @@ import {FORM_PROVIDERS} from 'angular2/common';
 import {Home} from './pages/home/home';
 import {NavMenu} from './components/nav-menu/nav-menu';
 
-
-
 /*
  * App Component
  * Top Level Component

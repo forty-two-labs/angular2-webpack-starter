@@ -1,10 +1,6 @@
 <div class="ui secondary pointing menu container">
-  <a [routerLink]=" ['Home'] " class="active item">
-    Home
-  </a>
-  <a [routerLink]=" ['Index'] " class="item">
-    Favourites
-  </a>
+  <a [routerLink]=" ['Index'] " router-active="active" class="item">Index</a>
+  <a [routerLink]=" ['Home'] " router-active="active" class="item">Home</a>
 
   <div class="right menu">
     <a class="ui item">

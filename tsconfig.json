@@ -13,6 +13,7 @@
     "./src/app/app.ts",
     "./src/app/components/nav-menu/nav-menu.spec.ts",
     "./src/app/components/nav-menu/nav-menu.ts",
+    "./src/app/directives/router-active.ts",
     "./src/app/pages/home/home.spec.ts",
     "./src/app/pages/home/home.ts",
     "./src/main.ts",

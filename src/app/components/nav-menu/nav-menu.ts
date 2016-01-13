@@ -1,6 +1,8 @@
 import {Component, View, Injectable} from 'angular2/core';
 import {ROUTER_DIRECTIVES} from 'angular2/router';
 
+import {RouterActive} from '../../directives/router-active';
+
 @Injectable()
 
 @Component({
@@ -8,7 +10,7 @@ import {ROUTER_DIRECTIVES} from 'angular2/router';
 })
 @View({
   template: require('./nav-menu.html'),
-  directives: [ROUTER_DIRECTIVES]
+  directives: [...ROUTER_DIRECTIVES, RouterActive]
 })
 
 export class NavMenu {
