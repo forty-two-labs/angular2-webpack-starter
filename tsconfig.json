@@ -27,6 +27,7 @@
     "./src/app/pages/register/register.ts",
     "./src/app/pages/resetPassword/resetPassword.spec.ts",
     "./src/app/pages/resetPassword/resetPassword.ts",
+    "./src/app/pipes/capitalize.pipe.ts",
     "./src/app/providers/data-provider.ts",
     "./src/app/providers/interfaces.ts",
     "./src/app/providers/label-data.ts",

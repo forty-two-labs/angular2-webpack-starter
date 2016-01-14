@@ -20,7 +20,11 @@ export class ForgotPassword {
   public forgotPasswordForm: ControlGroup;
   public email: Control = new Control('', Validators.required);
 
-  constructor(private _labelData: LabelData, private _formBuilder: FormBuilder, private _router: Router) {
+  constructor(
+    private _labelData: LabelData,
+    private _formBuilder: FormBuilder,
+    private _router: Router
+  ) {
     this._loadLabels();
     this._setupForm();
   }

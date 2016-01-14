@@ -23,7 +23,12 @@ export class Register {
   public email: Control = new Control('', Validators.required);
   public password: Control = new Control('', Validators.required);
 
-  constructor(private _labelData: LabelData, private _userData: UserData, private _formBuilder: FormBuilder, private _router: Router) {
+  constructor(
+    private _labelData: LabelData,
+    private _userData: UserData,
+    private _formBuilder: FormBuilder,
+    private _router: Router
+  ) {
     this._loadLabels();
     this._setupForm();
   }
