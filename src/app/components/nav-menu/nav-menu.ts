@@ -39,8 +39,8 @@ export class NavMenu {
   }
 
   private loadLabels() {
-    this._labelData.getNavLabels().then((data) => {
-      this.labels = data;
-    });
+    this._labelData.getLabelsOf('nav').subscribe(
+      (data) => this.labels = data
+    );
   }
 }
