@@ -18,8 +18,8 @@ import {LabelData} from '../../providers/label-data';
 export class Login {
   public labels: any = {};
   public loginForm: ControlGroup;
-  public email: Control = new Control("", Validators.required);
-  public password: Control = new Control("", Validators.required);
+  public email: Control = new Control('', Validators.required);
+  public password: Control = new Control('', Validators.required);
 
   constructor(private _labelData: LabelData, private _formBuilder: FormBuilder) {
     this._loadLabels();

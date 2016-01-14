@@ -18,7 +18,7 @@ import {LabelData} from '../../providers/label-data';
 export class ForgotPassword {
   public labels: any = {};
   public forgotPasswordForm: ControlGroup;
-  public email: Control = new Control("", Validators.required);
+  public email: Control = new Control('', Validators.required);
 
   constructor(private _labelData: LabelData, private _formBuilder: FormBuilder) {
     this._loadLabels();

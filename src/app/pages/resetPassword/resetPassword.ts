@@ -18,7 +18,7 @@ import {LabelData} from '../../providers/label-data';
 export class ResetPassword {
   public labels: any = {};
   public resetPasswordForm: ControlGroup;
-  public password: Control = new Control("", Validators.required);
+  public password: Control = new Control('', Validators.required);
 
   constructor(private _labelData: LabelData, private _formBuilder: FormBuilder) {
     this._loadLabels();
