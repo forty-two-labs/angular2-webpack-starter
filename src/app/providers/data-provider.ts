@@ -10,6 +10,11 @@ export abstract class DataProvider<T> {
     protected _dataUrl: string) {
   }
 
+  getOne(): Observable<T> {
+    return this._apiClient.get(this._dataUrl)
+      .map(res => new this._jsonNewFn(res.json()));
+  }
+
   getMany(): Observable<T> {
     return this._apiClient.get(this._dataUrl)
       .flatMap(res => Observable.from(res.json()))

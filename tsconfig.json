@@ -15,6 +15,8 @@
     "./src/app/components/nav-menu/nav-menu.ts",
     "./src/app/decorators/log.ts",
     "./src/app/directives/router-active.ts",
+    "./src/app/models/interfaces.ts",
+    "./src/app/models/label-map.ts",
     "./src/app/pages/forgotPassword/forgotPassword.spec.ts",
     "./src/app/pages/forgotPassword/forgotPassword.ts",
     "./src/app/pages/home/home.spec.ts",

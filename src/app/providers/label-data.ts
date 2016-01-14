@@ -1,60 +1,19 @@
 import {Injectable} from 'angular2/core';
-import {Http} from 'angular2/http';
-
+import {ApiClient} from '../services/api-client';
+import {DataProvider} from './data-provider';
+import {LabelMap} from '../models/label-map';
+import {LabelMapType} from '../models/interfaces';
+import {Observable} from 'rxjs/Observable';
 
 @Injectable()
-export class LabelData {
+export class LabelData extends DataProvider<LabelMap> {
   data: any;
 
-  constructor(public http: Http) {
-    this.http = http;
+  constructor(protected _apiClient: ApiClient) {
+    super(_apiClient, LabelMap, './assets/data/labels.json');
   }
 
-  load() {
-    if (this.data) {
-      return Promise.resolve(this.data);
-    }
-
-    return new Promise(resolve => {
-      this.http.get('assets/data/labels.json').subscribe(res => {
-        this.data = this.processData(res.json());
-        resolve(this.data);
-      });
-    });
+  getLabelsOf(key: string): Observable<LabelMapType> {
+    return this.getOne().map(m => m.data[key]);
   }
-
-  processData(data) {
-    return data;
-  }
-
-  getNavLabels() {
-    return this.load().then(data => {
-      return data.nav;
-    });
-  }
-
-  getLoginLabels() {
-    return this.load().then(data => {
-      return data.login;
-    });
-  }
-
-  getRegisterLabels() {
-    return this.load().then(data => {
-      return data.register;
-    });
-  }
-
-  getForgotPasswordLabels() {
-    return this.load().then(data => {
-      return data.forgotPassword;
-    });
-  }
-
-  getResetPasswordLabels() {
-    return this.load().then(data => {
-      return data.resetPassword;
-    });
-  }
-
 }

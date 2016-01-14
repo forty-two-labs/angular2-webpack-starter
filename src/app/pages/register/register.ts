@@ -3,7 +3,7 @@ import {FormBuilder, Validators, Control, ControlGroup, FORM_DIRECTIVES} from 'a
 import {ROUTER_DIRECTIVES} from 'angular2/router';
 
 import {LabelData} from '../../providers/label-data';
-
+import {LabelMapType} from '../../models/interfaces';
 
 @Component({
   providers: [],
@@ -16,7 +16,7 @@ import {LabelData} from '../../providers/label-data';
   template: require('./register.html')
 })
 export class Register {
-  public labels: any = {};
+  public labels: LabelMapType = {};
   public registerForm: ControlGroup;
   public email: Control = new Control('', Validators.required);
   public password: Control = new Control('', Validators.required);
@@ -38,9 +38,9 @@ export class Register {
   }
 
   private _loadLabels() {
-    this._labelData.getRegisterLabels().then((data) => {
-      this.labels = data;
-    });
+    this._labelData.getLabelsOf('register').subscribe(
+      (data) => this.labels = data
+    );
   }
 
   private _setupForm() {
