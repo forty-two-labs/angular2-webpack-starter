@@ -15,9 +15,11 @@ export abstract class DataProvider<T> {
       .map(res => new this._jsonNewFn(res.json()));
   }
 
-  getMany(): Observable<T> {
+  getMany(): Observable<Array<T>> {
     return this._apiClient.get(this._dataUrl)
-      .flatMap(res => Observable.from(res.json()))
-      .map(json => new this._jsonNewFn(json));
+      .map(res => {
+        let jsonArray = <Array<any>>res.json();
+        return jsonArray.map(json => new this._jsonNewFn(json));
+      });
   }
 }
