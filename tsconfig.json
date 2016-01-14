@@ -25,6 +25,7 @@
     "./src/app/pages/resetPassword/resetPassword.spec.ts",
     "./src/app/pages/resetPassword/resetPassword.ts",
     "./src/app/providers/label-data.ts",
+    "./src/app/services/api-client.ts",
     "./src/main.ts",
     "./src/vendor.ts",
     "./test/injector.spec.ts",

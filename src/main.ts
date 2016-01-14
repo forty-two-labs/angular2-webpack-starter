@@ -11,6 +11,8 @@ import {HTTP_PROVIDERS} from 'angular2/http';
  * our top level component that holds all of our components
  */
 import {App} from './app/app';
+import {ApiClient} from './app/services/api-client';
+
 /*
  * Bootstrap our Angular app with a top level component `App` and inject
  * our Services and Providers into Angular's dependency injection
@@ -20,7 +22,8 @@ document.addEventListener('DOMContentLoaded', function main() {
     ...('production' === process.env.ENV ? [] : ELEMENT_PROBE_PROVIDERS),
     ...HTTP_PROVIDERS,
     ...ROUTER_PROVIDERS,
-    provide(LocationStrategy, { useClass: HashLocationStrategy })
+    provide(LocationStrategy, { useClass: HashLocationStrategy }),
+    ApiClient
   ])
   .catch(err => console.error(err));
 });
