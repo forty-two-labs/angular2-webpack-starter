@@ -1,6 +1,6 @@
 import {Component} from 'angular2/core';
 import {FormBuilder, Validators, Control, ControlGroup, FORM_DIRECTIVES} from 'angular2/common';
-import {ROUTER_DIRECTIVES} from 'angular2/router';
+import {ROUTER_DIRECTIVES, Router} from 'angular2/router';
 
 import {LabelData} from '../../providers/label-data';
 import {LabelMapType} from '../../models/interfaces';
@@ -20,7 +20,7 @@ export class ResetPassword {
   public resetPasswordForm: ControlGroup;
   public password: Control = new Control('', Validators.required);
 
-  constructor(private _labelData: LabelData, private _formBuilder: FormBuilder) {
+  constructor(private _labelData: LabelData, private _formBuilder: FormBuilder, private _router: Router) {
     this._loadLabels();
     this._setupForm();
   }
@@ -50,5 +50,6 @@ export class ResetPassword {
 
   private _doResetPassword() {
     console.log('doResetPassword', this.password.value);
+    this._router.navigate(['/Home']);
   }
 }

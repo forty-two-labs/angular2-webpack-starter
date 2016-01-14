@@ -1,8 +1,10 @@
 import {Component} from 'angular2/core';
 import {FormBuilder, Validators, Control, ControlGroup, FORM_DIRECTIVES} from 'angular2/common';
-import {ROUTER_DIRECTIVES} from 'angular2/router';
+import {ROUTER_DIRECTIVES, Router} from 'angular2/router';
 
 import {LabelData} from '../../providers/label-data';
+import {UserData} from '../../providers/user-data';
+
 import {LabelMapType} from '../../models/interfaces';
 
 @Component({
@@ -21,7 +23,7 @@ export class Register {
   public email: Control = new Control('', Validators.required);
   public password: Control = new Control('', Validators.required);
 
-  constructor(private _labelData: LabelData, private _formBuilder: FormBuilder) {
+  constructor(private _labelData: LabelData, private _userData: UserData, private _formBuilder: FormBuilder, private _router: Router) {
     this._loadLabels();
     this._setupForm();
   }
@@ -51,6 +53,12 @@ export class Register {
   }
 
   private _doRegister() {
-    console.log('doRegister', this.email.value, this.password.value);
+    this._userData.login(this.email.value, this.password.value).then((result) => {
+      if (result) {
+        this._router.navigate(['/Home']);
+      } else {
+        console.log('failed to register');
+      }
+    });
   }
 }

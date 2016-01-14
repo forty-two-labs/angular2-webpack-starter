@@ -32,6 +32,7 @@ export class Login {
   }
 
   onSubmit(event) {
+    console.log('email', this.email.errors);
     event.preventDefault();
 
     if (this.loginForm.valid) {
