@@ -4,6 +4,7 @@ import {ROUTER_DIRECTIVES} from 'angular2/router';
 import {LabelData} from '../../providers/label-data';
 
 import {RouterActive} from '../../directives/router-active';
+import {log} from '../../decorators/log';
 
 @Injectable()
 
@@ -23,6 +24,7 @@ export class NavMenu {
     this.loadLabels();
   }
 
+  @log
   ngOnInit() {
     $('.ui.search')
       .search({

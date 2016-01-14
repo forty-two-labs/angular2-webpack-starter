@@ -13,6 +13,7 @@
     "./src/app/app.ts",
     "./src/app/components/nav-menu/nav-menu.spec.ts",
     "./src/app/components/nav-menu/nav-menu.ts",
+    "./src/app/decorators/log.ts",
     "./src/app/directives/router-active.ts",
     "./src/app/pages/forgotPassword/forgotPassword.spec.ts",
     "./src/app/pages/forgotPassword/forgotPassword.ts",
