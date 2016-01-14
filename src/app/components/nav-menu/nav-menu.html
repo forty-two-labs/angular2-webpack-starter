@@ -3,8 +3,15 @@
   <a [routerLink]=" ['Home'] " router-active="active" class="item">Home</a>
 
   <div class="right menu">
-    <a class="ui item">
-      Logout
+    <div class="ui right aligned category search item">
+      <div class="ui transparent icon input">
+        <input class="prompt" type="text" placeholder="Search ...">
+        <i class="search link icon"></i>
+      </div>
+      <div class="results"></div>
+    </div>
+    <a [routerLink]=" ['Login'] " class="ui item">
+      {{ labels['login'] }}
     </a>
   </div>
 </div>

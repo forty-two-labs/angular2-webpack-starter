@@ -1,6 +1,8 @@
 import {Component, View, Injectable} from 'angular2/core';
 import {ROUTER_DIRECTIVES} from 'angular2/router';
 
+import {LabelData} from '../../providers/label-data';
+
 import {RouterActive} from '../../directives/router-active';
 
 @Injectable()
@@ -14,10 +16,29 @@ import {RouterActive} from '../../directives/router-active';
 })
 
 export class NavMenu {
-  constructor() {
-  }
-  ngOnInit() {
-    console.log('hello Nav Menu component');
+  public labels: any = {};
+  public categories: Array<any> = [];
+
+  constructor(private _labelData: LabelData) {
+    this.loadLabels();
   }
 
+  ngOnInit() {
+    $('.ui.search')
+      .search({
+        source: [],
+        minCharacters: 2,
+        searchFields: [
+          'title',
+          'description'
+        ]
+      })
+    ;
+  }
+
+  private loadLabels() {
+    this._labelData.getNavLabels().then((data) => {
+      this.labels = data;
+    });
+  }
 }

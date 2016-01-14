@@ -5,6 +5,8 @@ import {Component, ViewEncapsulation} from 'angular2/core';
 import {RouteConfig, Router, ROUTER_DIRECTIVES} from 'angular2/router';
 import {FORM_PROVIDERS} from 'angular2/common';
 
+import {LabelData} from './providers/label-data';
+
 import {Home} from './pages/home/home';
 import {Login} from './pages/login/login';
 import {Register} from './pages/register/register';
@@ -18,7 +20,7 @@ import {NavMenu} from './components/nav-menu/nav-menu';
  */
 @Component({
   selector: 'app',
-  providers: [ ...FORM_PROVIDERS ],
+  providers: [ ...FORM_PROVIDERS, LabelData ],
   directives: [ ...ROUTER_DIRECTIVES, NavMenu ],
   pipes: [],
   styles: [],
