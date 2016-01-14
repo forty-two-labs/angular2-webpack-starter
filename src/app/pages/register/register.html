@@ -8,21 +8,27 @@
         </div>
       </h2>
 
-      <form class="ui large form">
+      <form class="ui large form" [ngFormModel]="registerForm" (submit)="onSubmit($event)">
         <div class="ui stacked segment">
           <div class="field">
             <div class="ui left icon input">
               <i class="user icon"></i>
-              <input type="email" name="email" placeholder="Email">
+              <input ngControl="email" type="email" name="email" placeholder="Email">
             </div>
           </div>
           <div class="field">
             <div class="ui left icon input">
               <i class="lock icon"></i>
-              <input type="password" name="password" placeholder="Password">
+              <input ngControl="password" type="password" name="password" placeholder="Password">
             </div>
           </div>
-          <div class="ui fluid large teal submit button">{{ labels['form.submit'] }}</div>
+          <button
+            type="submit"
+            class="ui fluid large teal submit button"
+            [disabled]="!registerForm.valid"
+            [ngClass]="{'button-disabled': !registerForm.valid}">
+            {{ labels['form.submit'] }}
+          </button>
         </div>
 
         <div class="ui error message"></div>
