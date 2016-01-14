@@ -3,7 +3,7 @@ import {FormBuilder, Validators, Control, ControlGroup, FORM_DIRECTIVES} from 'a
 import {ROUTER_DIRECTIVES} from 'angular2/router';
 
 import {LabelData} from '../../providers/label-data';
-
+import {LabelMapType} from '../../models/interfaces';
 
 @Component({
   providers: [],
@@ -16,7 +16,7 @@ import {LabelData} from '../../providers/label-data';
   template: require('./forgotPassword.html')
 })
 export class ForgotPassword {
-  public labels: any = {};
+  public labels: LabelMapType = {};
   public forgotPasswordForm: ControlGroup;
   public email: Control = new Control('', Validators.required);
 
@@ -37,9 +37,9 @@ export class ForgotPassword {
   }
 
   private _loadLabels() {
-    this._labelData.getForgotPasswordLabels().then((data) => {
-      this.labels = data;
-    });
+    this._labelData.getLabelsOf('forgotPassword').subscribe(
+      (data) => this.labels = data
+    );
   }
 
   private _setupForm() {
