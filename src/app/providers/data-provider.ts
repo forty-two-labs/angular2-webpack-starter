@@ -19,7 +19,7 @@ export abstract class DataProvider<T> {
     return this._apiClient.get(this._dataUrl)
       .map(res => {
         let jsonArray = <Array<any>>res.json();
-        return jsonArray.map(json => new this._jsonNewFn(json))
+        return jsonArray.map(json => new this._jsonNewFn(json));
       });
   }
 }
