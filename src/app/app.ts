@@ -14,8 +14,6 @@ import {ForgotPassword} from './pages/forgotPassword/forgotPassword';
 import {ResetPassword} from './pages/resetPassword/resetPassword';
 import {NavMenu} from './components/nav-menu/nav-menu';
 
-import {LabelData} from './providers/label-data';
-
 /*
  * App Component
  * Top Level Component
