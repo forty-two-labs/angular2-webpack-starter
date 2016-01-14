@@ -6,6 +6,7 @@ import {RouteConfig, Router, ROUTER_DIRECTIVES} from 'angular2/router';
 import {FORM_PROVIDERS} from 'angular2/common';
 
 import {LabelData} from './providers/label-data';
+import {UserData} from './providers/user-data';
 
 import {Home} from './pages/home/home';
 import {Login} from './pages/login/login';
@@ -20,7 +21,7 @@ import {NavMenu} from './components/nav-menu/nav-menu';
  */
 @Component({
   selector: 'app',
-  providers: [ ...FORM_PROVIDERS, LabelData ],
+  providers: [ ...FORM_PROVIDERS, LabelData, UserData ],
   directives: [ ...ROUTER_DIRECTIVES, NavMenu ],
   pipes: [],
   styles: [],

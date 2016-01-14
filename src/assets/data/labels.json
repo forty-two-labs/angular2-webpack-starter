@@ -1,6 +1,7 @@
 {
   "nav": {
     "login": "Login",
+    "logout": "Logout",
     "register": "Register"
   },
   "login": {

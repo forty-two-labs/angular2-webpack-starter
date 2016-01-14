@@ -1,7 +1,8 @@
 import {Component, View, Injectable} from 'angular2/core';
-import {ROUTER_DIRECTIVES} from 'angular2/router';
+import {ROUTER_DIRECTIVES, Router} from 'angular2/router';
 
 import {LabelData} from '../../providers/label-data';
+import {UserData} from '../../providers/user-data';
 
 import {RouterActive} from '../../directives/router-active';
 import {log} from '../../decorators/log';
@@ -19,9 +20,12 @@ import {log} from '../../decorators/log';
 export class NavMenu {
   public labels: any = {};
   public categories: Array<any> = [];
+  public hasLoggedIn: boolean = false;
+  private _loginStatusSubscription: any;
 
-  constructor(private _labelData: LabelData) {
-    this.loadLabels();
+  constructor(private _labelData: LabelData, private _userData: UserData, private _router: Router) {
+    this._loadLabels();
+    this._listenToLoginStatusChange();
   }
 
   @log
@@ -38,9 +42,27 @@ export class NavMenu {
     ;
   }
 
-  private loadLabels() {
+  @log
+  ngOnDestroy() {
+    this._loginStatusSubscription.unsubscribe();
+  }
+
+  doLogout() {
+    this._userData.logout();
+    this._router.navigate(['/Login']);
+  }
+
+  private _loadLabels() {
     this._labelData.getNavLabels().then((data) => {
       this.labels = data;
+    });
+  }
+
+  private _listenToLoginStatusChange() {
+    this.hasLoggedIn = this._userData.hasLoggedIn();
+
+    this._loginStatusSubscription = this._userData.getLoginStatusChangeEmitter().subscribe((hasLoggedIn) => {
+      this.hasLoggedIn = hasLoggedIn;
     });
   }
 }

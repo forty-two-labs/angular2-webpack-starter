@@ -28,6 +28,7 @@
     "./src/app/providers/data-provider.ts",
     "./src/app/providers/interfaces.ts",
     "./src/app/providers/label-data.ts",
+    "./src/app/providers/user-data.ts",
     "./src/app/services/api-client.ts",
     "./src/main.ts",
     "./src/vendor.ts",

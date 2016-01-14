@@ -10,8 +10,15 @@
       </div>
       <div class="results"></div>
     </div>
-    <a [routerLink]=" ['Login'] " class="ui item">
-      {{ labels['login'] }}
-    </a>
+    <div *ngIf="!hasLoggedIn">
+      <a [routerLink]=" ['Login'] " class="ui item">
+        {{ labels['login'] }}
+      </a>
+    </div>
+    <div *ngIf="hasLoggedIn">
+      <a (click)="doLogout()" class="ui item">
+        {{ labels['logout'] }}
+      </a>
+    </div>
   </div>
 </div>
