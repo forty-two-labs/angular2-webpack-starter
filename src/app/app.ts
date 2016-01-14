@@ -6,6 +6,10 @@ import {RouteConfig, Router, ROUTER_DIRECTIVES} from 'angular2/router';
 import {FORM_PROVIDERS} from 'angular2/common';
 
 import {Home} from './pages/home/home';
+import {Login} from './pages/login/login';
+import {Register} from './pages/register/register';
+import {ForgotPassword} from './pages/forgotPassword/forgotPassword';
+import {ResetPassword} from './pages/resetPassword/resetPassword';
 import {NavMenu} from './components/nav-menu/nav-menu';
 
 /*
@@ -23,6 +27,10 @@ import {NavMenu} from './components/nav-menu/nav-menu';
 @RouteConfig([
   { path: '/', component: Home, name: 'Index' },
   { path: '/home', component: Home, name: 'Home' },
+  { path: '/login', component: Login, name: 'Login' },
+  { path: '/register', component: Register, name: 'Register' },
+  { path: '/forgot_password', component: ForgotPassword, name: 'ForgotPassword' },
+  { path: '/reset_password', component: ResetPassword, name: 'ResetPassword' },
   { path: '/**', redirectTo: ['Index'] }
 ])
 export class App {

@@ -1,0 +1,27 @@
+{
+  "nav": {
+    "login": "Login",
+    "register": "Register"
+  },
+  "login": {
+    "header": "Login to your account",
+    "form.submit": "Login",
+    "link.forgot_password": "Forgot password ?",
+    "link.register": "No account yet ? Sign Up for free"
+  },
+  "register": {
+    "header": "Sign Up for free",
+    "form.submit": "Register",
+    "link.login": "Already have account ? Login here"
+  },
+  "forgotPassword": {
+    "header": "Request for Reset Password",
+    "form.submit": "Submit",
+    "link.login": "Already have account ? Login here"
+  },
+  "resetPassword": {
+    "header": "Reset your password",
+    "form.submit": "Submit",
+    "link.login": "Already have account ? Login here"
+  }
+}

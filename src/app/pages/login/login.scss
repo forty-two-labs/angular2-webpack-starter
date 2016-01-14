@@ -1,0 +1,9 @@
+.page__login {
+  .ui.grid {
+    min-height: 640px;
+
+    > .column {
+      max-width: 450px;
+    }
+  }
+}
