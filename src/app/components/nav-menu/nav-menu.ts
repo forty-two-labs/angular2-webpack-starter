@@ -1,7 +1,7 @@
 import {Component, View, Injectable} from 'angular2/core';
 import {ROUTER_DIRECTIVES} from 'angular2/router';
-
 import {RouterActive} from '../../directives/router-active';
+import {log} from '../../decorators/log';
 
 @Injectable()
 
@@ -16,8 +16,8 @@ import {RouterActive} from '../../directives/router-active';
 export class NavMenu {
   constructor() {
   }
-  ngOnInit() {
-    console.log('hello Nav Menu component');
-  }
 
+  @log
+  ngOnInit() {
+  }
 }

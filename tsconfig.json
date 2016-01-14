@@ -11,6 +11,7 @@
   "files": [
     "./src/app/app.spec.ts",
     "./src/app/app.ts",
+    "./src/app/decorators/log.ts",
     "./src/app/components/nav-menu/nav-menu.spec.ts",
     "./src/app/components/nav-menu/nav-menu.ts",
     "./src/app/directives/router-active.ts",
