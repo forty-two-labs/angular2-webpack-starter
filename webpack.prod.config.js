@@ -20,7 +20,7 @@ var HOST = process.env.HOST || 'localhost';
 var PORT = process.env.PORT || 8080;
 
 var metadata = {
-  title: 'Angular2 Webpack Starter by @gdi2990 from @AngularClass',
+  title: 'Webpack Prod Name',
   baseUrl: '/',
   host: HOST,
   port: PORT,
@@ -90,13 +90,22 @@ module.exports = {
       },
 
       // Support for *.json files.
-      { test: /\.json$/,  loader: 'json-loader' },
-
-      // Support for CSS as raw text
-      { test: /\.css$/,   loader: 'raw-loader' },
+      {
+        test: /\.css$/,
+        exclude: /node_modules/,
+        loader: 'raw-loader'
+      },
+      {
+        test: /\.scss$/,
+        exclude: /node_modules/,
+        loaders: ["raw", "sass"]
+      },
 
       // support for .html as raw text
-      { test: /\.html$/,  loader: 'raw-loader' }
+      {
+        test: /\.html$/,
+        loader: 'raw-loader'
+      }
 
       // if you add a loader include the file extension
     ]
@@ -156,7 +165,7 @@ module.exports = {
   // Other module loader config
   tslint: {
     emitErrors: true,
-    failOnHint: true
+    failOnHint: false
   },
   // don't use devServer for production
 
