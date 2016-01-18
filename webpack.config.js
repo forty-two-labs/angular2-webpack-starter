@@ -4,10 +4,7 @@
  * Helper: root(), and rootDir() are defined at the bottom
  */
 var path = require('path');
-// Webpack Plugins
-var ProvidePlugin = require('webpack/lib/ProvidePlugin');
-var DefinePlugin  = require('webpack/lib/DefinePlugin');
-var CommonsChunkPlugin = require('webpack/lib/optimize/CommonsChunkPlugin');
+var webpack = require('webpack');
 var CopyWebpackPlugin  = require('copy-webpack-plugin');
 var HtmlWebpackPlugin  = require('html-webpack-plugin');
 var ENV = process.env.ENV = process.env.NODE_ENV = 'development';
@@ -31,10 +28,8 @@ module.exports = {
   devtool: 'source-map',
   debug: true,
 
-  entry: {
-    'vendor': './src/vendor.ts',
-    'main': './src/main.ts' // our angular app
-  },
+  // our angular app
+  entry: { 'vendor': './src/vendor.ts', 'main': './src/main.ts' },
 
   // Config for our build files
   output: {
@@ -90,9 +85,8 @@ module.exports = {
   },
 
   plugins: [
-    new CommonsChunkPlugin({
-      name: 'vendor', filename: 'vendor.bundle.js', minChunks: Infinity
-    }),
+    new webpack.optimize.OccurenceOrderPlugin(true),
+    new webpack.optimize.CommonsChunkPlugin({ name: 'vendor', filename: 'vendor.bundle.js', minChunks: Infinity }),
     // static assets
     new CopyWebpackPlugin([
       { from: 'src/assets', to: 'assets' },
@@ -104,7 +98,7 @@ module.exports = {
       template: 'src/index.html', inject: false
     }),
     // replace
-    new DefinePlugin({
+    new webpack.DefinePlugin({
       'process.env': {
         'ENV': JSON.stringify(metadata.ENV),
         'NODE_ENV': JSON.stringify(metadata.ENV)
