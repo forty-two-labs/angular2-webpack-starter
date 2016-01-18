@@ -1,5 +1,12 @@
 import {Injectable, Injector} from 'angular2/core';
-import {Http, Request, RequestOptions, RequestOptionsArgs, RequestMethod, Response} from 'angular2/http';
+import {
+  Http,
+  Request,
+  RequestOptions,
+  RequestOptionsArgs,
+  RequestMethod,
+  Response
+} from 'angular2/http';
 import {Observable} from 'rxjs/Observable';
 
 // TODO base url
@@ -37,7 +44,10 @@ export class ApiClient {
     return this.buildRequest({ url: url, method: RequestMethod.Head }, options);
   }
 
-  private buildRequest(requestArgs: RequestOptionsArgs, additionalOptions: RequestOptionsArgs): Observable<Response> {
+  private buildRequest(
+    requestArgs: RequestOptionsArgs,
+    additionalOptions: RequestOptionsArgs
+  ): Observable<Response> {
     let options = new RequestOptions(requestArgs);
 
     if (additionalOptions) {
